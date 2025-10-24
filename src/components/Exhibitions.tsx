@@ -1,46 +1,44 @@
-import Icon from '@/components/ui/icon';
-
 const exhibitions = [
   {
     title: 'Античное искусство',
+    period: 'V-I вв. до н.э.',
     description: 'Коллекция древнегреческих и римских артефактов',
-    image: 'https://cdn.poehali.dev/projects/0f09ea8d-3871-4127-9a55-5378888964c9/files/75c2eb69-f7ce-4304-83c4-2c0bd398a4f7.jpg',
-    icon: 'Palette',
+    image: 'https://cdn.poehali.dev/projects/0f09ea8d-3871-4127-9a55-5378888964c9/files/a6c849b7-651c-462b-ad51-8a8cc608143f.jpg',
   },
   {
     title: 'Современное искусство',
-    description: 'Работы художников XX-XXI веков',
-    image: 'https://cdn.poehali.dev/projects/0f09ea8d-3871-4127-9a55-5378888964c9/files/6338245b-494a-4f85-b65b-294613883d43.jpg',
-    icon: 'Sparkles',
+    period: 'XX-XXI век',
+    description: 'Работы выдающихся художников современности',
+    image: 'https://cdn.poehali.dev/projects/0f09ea8d-3871-4127-9a55-5378888964c9/files/d49926a1-6f7b-4077-903f-5a6931ef869e.jpg',
   },
   {
-    title: 'Историческая экспозиция',
-    description: 'Предметы быта и культуры разных эпох',
-    image: 'https://cdn.poehali.dev/projects/0f09ea8d-3871-4127-9a55-5378888964c9/files/75c2eb69-f7ce-4304-83c4-2c0bd398a4f7.jpg',
-    icon: 'Clock',
+    title: 'Историческая коллекция',
+    period: 'XVI-XIX век',
+    description: 'Предметы быта и культуры различных эпох',
+    image: 'https://cdn.poehali.dev/projects/0f09ea8d-3871-4127-9a55-5378888964c9/files/d49926a1-6f7b-4077-903f-5a6931ef869e.jpg',
   },
 ];
 
 const Exhibitions = () => {
   return (
-    <section id="exhibitions" className="py-20 bg-background">
+    <section id="exhibitions" className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
             Экспозиции
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Познакомьтесь с нашими постоянными и временными выставками
+            Наши коллекции представляют богатство культурного наследия разных эпох
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {exhibitions.map((exhibition, index) => (
             <div
               key={index}
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300"
+              className="group bg-card overflow-hidden cursor-pointer"
             >
-              <div className="relative h-64 overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={exhibition.image}
                   alt={exhibition.title}
@@ -48,14 +46,12 @@ const Exhibitions = () => {
                 />
               </div>
               <div className="p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center">
-                    <Icon name={exhibition.icon as any} size={20} className="text-accent" />
-                  </div>
-                  <h3 className="text-xl font-serif font-bold">
-                    {exhibition.title}
-                  </h3>
-                </div>
+                <p className="text-xs uppercase tracking-wider text-accent mb-2">
+                  {exhibition.period}
+                </p>
+                <h3 className="text-2xl font-serif font-bold mb-3">
+                  {exhibition.title}
+                </h3>
                 <p className="text-muted-foreground">
                   {exhibition.description}
                 </p>
